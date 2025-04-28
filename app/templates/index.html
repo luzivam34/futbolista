@@ -18,6 +18,16 @@
         <button type="submit">Cadastrar</button>
     </form>
 
+    <!-- ... formulário acima ... -->
+
+<h2>Jogos Cadastrados</h2>
+<ul>
+    {% for jogo in jogos %}
+        <li>{{ jogo.data_jogo.strftime('%d/%m/%Y') }} - {{ jogo.clube_mandante }} {{ jogo.gols_mandante }} x {{ jogo.gols_visitante }} {{ jogo.clube_visitante }} ({{ jogo.campeonato }} - {{ jogo.local_partida }})</li>
+    {% endfor %}
+</ul>
+
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
