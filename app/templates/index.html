@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Jogos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Cadastro de Jogo</h1>
+    <form method="POST" action="#">
+        <input type="text" name="mandante" placeholder="Clube Mandante" required>
+        <input type="text" name="visitante" placeholder="Clube Visitante" required>
+        <input type="date" name="data_jogo" required>
+        <input type="number" name="gols_mandante" placeholder="Gols Mandante" required>
+        <input type="number" name="gols_visitante" placeholder="Gols Visitante" required>
+        <input type="text" name="campeonato" placeholder="Campeonato" required>
+        <input type="text" name="local" placeholder="Local da Partida" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
