@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Jogo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Editar Jogo</h1>
+    <form method="POST">
+        <input type="text" name="mandante" value="{{ jogo.clube_mandante }}" required>
+        <input type="text" name="visitante" value="{{ jogo.clube_visitante }}" required>
+        <input type="date" name="data_jogo" value="{{ jogo.data_jogo.strftime('%Y-%m-%d') }}" required>
+        <input type="number" name="gols_mandante" value="{{ jogo.gols_mandante }}" required>
+        <input type="number" name="gols_visitante" value="{{ jogo.gols_visitante }}" required>
+        <input type="text" name="campeonato" value="{{ jogo.campeonato }}" required>
+        <input type="text" name="local" value="{{ jogo.local_partida }}" required>
+        <button type="submit">Salvar Alterações</button>
+    </form>
+    <a href="{{ url_for('main.index') }}">Cancelar</a>
+</body>
+</html>

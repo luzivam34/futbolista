@@ -23,7 +23,14 @@
 <h2>Jogos Cadastrados</h2>
 <ul>
     {% for jogo in jogos %}
-        <li>{{ jogo.data_jogo.strftime('%d/%m/%Y') }} - {{ jogo.clube_mandante }} {{ jogo.gols_mandante }} x {{ jogo.gols_visitante }} {{ jogo.clube_visitante }} ({{ jogo.campeonato }} - {{ jogo.local_partida }})</li>
+        <li>{{ jogo.data_jogo.strftime('%d/%m/%Y') }} - {{ jogo.clube_mandante }} {{ jogo.gols_mandante }} x {{ jogo.gols_visitante }} {{ jogo.clube_visitante }} ({{ jogo.campeonato }} - {{ jogo.local_partida }})
+            
+            <a href="{{ url_for('main.editar', id=jogo.id) }}">Editar</a>
+
+            <form method="POST" action="{{ url_for('main.excluir', id=jogo.id) }}" style="display:inline;">
+                <button type="submit" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</button>
+            </form>
+        </li>
     {% endfor %}
 </ul>
 
