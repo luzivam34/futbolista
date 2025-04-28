@@ -5,6 +5,7 @@ from datetime import datetime
 
 main = Blueprint('main', __name__)
 
+
 @main.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -24,6 +25,7 @@ def index():
     jogos = Jogo.query.order_by(Jogo.data_jogo.desc()).all()
     return render_template('index.html', jogos=jogos)
 
+
 @main.route('/editar/<int:id>', methods=['GET', 'POST'])
 def editar(id):
     jogo = Jogo.query.get_or_404(id)
@@ -40,6 +42,7 @@ def editar(id):
         return redirect(url_for('main.index'))
 
     return render_template('editar.html', jogo=jogo)
+
 
 @main.route('/excluir/<int:id>', methods=['POST'])
 def excluir(id):
